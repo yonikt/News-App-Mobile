@@ -3,8 +3,8 @@ const request = require('request')
 const app = express()
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-const port = 1888
-const cityModel = require('./models/cityModel')
+const port = 9876
+const newsModel = require('./models/newsModel')
 const path = require('path')
 
 app.use(express.static(path.join(__dirname, 'dist')))
@@ -13,44 +13,36 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 
-app.get('/city/:cityName', function (req, res) {
-    const cityName = req.params.cityName
-    request.get(`http://api.apixu.com/v1/current.json?key=b7b1ffabaca24426aa993629191007&q=${cityName}`, function (error, response) {
-        let resp = JSON.parse(response.body)
-        const c1 = {
-            name: resp.location.name,
-            updatedAt: resp.current.last_updated,
-            temperature: resp.current.temp_c,
-            condition: resp.current.condition.text,
-            conditionPic: resp.current.condition.icon
-        }
-        res.json(c1)
+
+app.get('/news/:id', function (req, res){
+    const id = req.params.id
+    request.get(`https://newsapi.org/v2/top-headlines?country=il&apiKey=c1946b44b3a64af1b038578d49c95798`, function(error,response) {
+    response=JSON.parse(response.body)
+     const m1 = new newsModel({
+        source: response.articles[id].source.name,
+        updatedAt: response.articles[id].publishedAt,
+        author:response.articles[id].author,
+        title: response.articles[id].title,
+        description: response.articles[id].description,
+        picture: response.articles[id].urlToImage
     })
-})
-
-app.get('/cities', function (req, res) {
-    cityModel.find({}, function (err, data) {
-        res.send(data)
-    })
-})
-
-app.post('/city', (req, res) => {
-    const c2 = new cityModel(req.body)
-    c2.save(() => res.json({ success: true }))
-})
+    m1.save()
+    res.send(m1)
+    }) 
+ })
 
 
-app.delete('/city/:cityName', function(req, res){
-    const city = req.params.cityName
-    cityModel.findOneAndRemove({'name': city}).then(function(){
-    })
-    res.end()
+ app.post('/save', (req, res) => {
+    const m2 = new newsModel(req.body)
+    m2.save(() => res.json({ success: true }))
 })
 
 
 
 
-mongoose.connect(process.env.MONGODB_URI|| 'mongodb://localhost/city', { useNewUrlParser: true }).then(() => {
+
+
+mongoose.connect(process.env.MONGODB_URI|| 'mongodb://localhost/mivzak', { useNewUrlParser: true }).then(() => {
     app.listen(process.env.PORT || port, () => console.log(`Running server on port ${port}`))
 })
 
