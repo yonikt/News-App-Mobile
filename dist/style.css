@@ -1,5 +1,6 @@
 #container{
     direction: rtl;
+    user-select: none;
     
     
 }
@@ -17,6 +18,7 @@
    box-sizing: border-box;
    font-family: 'Roboto', sans-serif;
    background-color: #fafafa;
+   user-select: none;
 }
 body::before,
 body::after {
