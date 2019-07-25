@@ -27,6 +27,15 @@ body::after {
 body * {
   box-sizing: inherit;
 }
+
+.header{
+  text-align: center;
+  font-size: 1.5em;
+  color: white;
+  background-color: #343c6b;
+  
+}
+
 p, h1 {
   margin: 0; padding: 0;
 }

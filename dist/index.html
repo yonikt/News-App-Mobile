@@ -6,7 +6,7 @@
     <meta name="viewport" content="user-scalable=no,width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="theme-color" content="rgb(42, 178, 234)" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="rgb(42, 178, 234)">
+    <meta name="apple-mobile-web-app-status-bar-style" content="rgb(255,255,255)">
     <title>news-app</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
@@ -19,11 +19,69 @@
 
 
 
-    
+    <p class="header mx-auto p-relative shadow-1 "="rtl">
+        יום <span id='day'></span>, <span id="dayInMonth"></span> ב<span id='month'></span><span id="dayInMonth"></span> <span id="fullYear"></span>
+ </p>
    
 
     <div id="container"> </div>
 
+
+
+ <script>
+
+    (function($) {
+
+    //המשתנים שמתקבלים מהשעון
+
+    var date = new Date(),
+
+    day  = date.getDay(),
+
+    fullYear = date.getFullYear(), 
+
+    month = date.getMonth(),
+
+    dayInMonth = date.getDate();
+
+	 
+
+     //המערכים שמאפשרים את המרת השמות לשמות עבריים
+
+    var hebrewDaysNames = new Array("ראשון","שני","שלישי","רביעי","חמישי","שישי","שבת");
+      var hebrewMonthsNames = new Array("דצמבר","נובמבר", "אוקטובר", "ספטמבר", "אוגוסט", "יולי", "יוני","מאי","אפריל","מרץ","פברואר","ינואר");    
+
+	 
+
+     //מדפיס את היום
+
+     var getDay = hebrewDaysNames[day];
+
+     $('#day').text(getDay);
+
+	 
+
+     //מדפיס את החודש
+
+     var getMonth = hebrewMonthsNames[month];
+
+     $('#month').text(getMonth);
+
+	 
+
+      //מדפיס את היום בחודש
+
+     $("#dayInMonth").text(dayInMonth);
+
+	 
+
+     //מדפיס את השנה המלאה
+
+     $("#fullYear").text(fullYear);
+
+ })(jQuery);   
+
+</script>
 
 
 
