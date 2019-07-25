@@ -55,7 +55,7 @@ app.delete('/news/:article', function (req, res) {
 
 
 
-
+///
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/mivzak', { useNewUrlParser: true }).then(() => {
     app.listen(process.env.PORT || port, () => console.log(`Running server on port ${port}`))
