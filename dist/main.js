@@ -3,15 +3,11 @@ const newsManager = new NewsManager
 
 
 const getData = async function () {
-    const input = $('input').val()
-    const data = await newsManager.getNewsData(input)
+    const data = await newsManager.getNewsData()
    renderer.renderData(data)
 }
 
-
-
-
-$('#save').on('click', getData)
+getData()
 
 
 

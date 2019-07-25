@@ -4,11 +4,11 @@ class NewsManager {
     }
 
 
-    async getNewsData(newsID) {
-        let x = await $.get(`/news/${newsID}`)
+    async getNewsData() {
+        let x = await $.get(`/news`)
         this.newsData.push(x)
-        console.log(x)
-        return x
+        console.log(this.newsData)
+        return this.newsData[0]
     }
 
 
