@@ -15,8 +15,8 @@ class Renderer {
 
          
          $('#container').append(`<div class="my-2 mx-auto p-relative bg-white shadow-1 blue-hover" style="width: 360px; overflow: hidden; border-radius: 1px;">
-<img src=${data[i].picture} alt="לא נמצאה תמונה"    
-    class="d-block w-full">
+         <img src=${data[i].picture} onError="this.onerror=null;this.src='https://www.mdcomms.co.uk/wp-content/uploads/2017/03/8c880ec2fa87287cbd8e61bbeaf473fd_0.jpg';" 
+         class="d-block w-full">
 
 <div class="px-2 py-2">
 <p class=" title mb-0 small font-weight-medium text-uppercase mb-1 text-muted lts-2px">
