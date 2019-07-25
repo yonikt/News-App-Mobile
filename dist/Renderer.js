@@ -1,11 +1,11 @@
 class Renderer {
 
    async renderData(data) {
-      
+
       for (let i = 0; i < data.length; i++) {
 
 
-         if(data[i].author===null){
+         if(data[i].author===null || data[i].author.length>25  ){
             data[i].author= "מערכת" + data[i].title.split("-").pop()
          }
 
@@ -13,6 +13,9 @@ class Renderer {
          if(data[i].description===null){
             data[i].description= data[i].title.split("-")[0]
          }
+
+
+      
 
          
          $('#container').append(`<div class="my-2 mx-auto p-relative bg-white shadow-1 blue-hover" style="width: 360px; overflow: hidden; border-radius: 1px;">
