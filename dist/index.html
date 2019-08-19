@@ -10,24 +10,18 @@
     <title>news-app</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
-
 </head>
 
 </head>
 
 <body>
 
-
-
     <p class="header mx-auto p-relative shadow-1 "="rtl">
         יום <span id='day'></span>, <span id="dayInMonth"></span> ב<span id='month'></span><span id="dayInMonth"></span>
         <span id="fullYear"></span>
     </p>
-
-
+    <span id="rights">Created By <a href="https://github.com/yonikt"> Yoni Kiat</a></span>
     <div id="container"> </div>
-
-
 
     <script>
 
@@ -41,7 +35,6 @@
                 month = date.getMonth() + 1,
                 dayInMonth = date.getDate()
 
-
             let hebrewDaysNames = ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי", "שבת"]
             let hebrewMonthsNames = ["ינואר", "פברואר", "מרץ", "אפריל", "מאי", "יוני", "יולי", "אוגוסט", "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"]
 
@@ -53,7 +46,6 @@
         })(jQuery)
 
     </script>
-
 
     <script src="NewsManager.js"></script>
     <script src="Renderer.js"></script>
