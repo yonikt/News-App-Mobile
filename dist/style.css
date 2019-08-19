@@ -1,11 +1,3 @@
-#container{
-    direction: rtl;
-    user-select: none;
-    
-    
-}
-
-
 @import url(https://fonts.googleapis.com/css?family=Lora|Roboto:400,500);
 
  body {
@@ -30,12 +22,16 @@ body * {
   box-sizing: inherit;
 }
 
+#container{
+  direction: rtl;
+  user-select: none; 
+}
+
 .header{
   text-align: center;
   font-size: 1.5em;
   color: white;
   background-color: #343c6b;
-  
 }
 
 p, h1 {
@@ -51,8 +47,6 @@ p, h1 {
 .text-muted {
   color: rgba(0, 0, 0, 0.3);
 }
-
-
 
 .text-uppercase {
   text-transform: uppercase;
@@ -74,7 +68,6 @@ p, h1 {
 .lts-2px {
   letter-spacing: 2px;
 }
-
 
 .w-full {
   width: 100%;
@@ -104,16 +97,9 @@ p, h1 {
   position: absolute
 }
 
-
-
 .bg-white {
   background-color: #fff;
 }
-
-
-
-
-
 
 .small {
   font-size: 0.75rem;
@@ -142,13 +128,9 @@ p, h1 {
 }
 .blue-hover:hover {
   transform: translateY(-5px);
-  mar
   border: none;
   border-bottom: 5px solid #2196fe;
 }
-
-
-
 
 .clearfix::before,
 .clearfix::after {
@@ -162,10 +144,6 @@ p, h1 {
 .float-right{
   float: right;
 }
-
-
-
-
 
 
 /**Margin and padding utilities*/
@@ -253,9 +231,6 @@ p, h1 {
   margin-left: 3rem;
 }
 
-
-
-
 .px-0 {
   padding-left: 0;
   padding-right: 0;
@@ -272,7 +247,6 @@ p, h1 {
   padding-left: 3rem;
   padding-right: 3rem;
 }
-
 
 .py-0 {
   padding-top: 0;
@@ -316,3 +290,8 @@ p, h1 {
 .pb-3 {
   padding-bottom: 3rem;
 }
+
+#rights{
+  font-size: 0.6em;
+}
+
