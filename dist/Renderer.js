@@ -28,7 +28,7 @@ ${data[i].title.split("-").pop()}
 ${data[i].title.split("-")[0]}
 </h1>
 
-<p class="mb-1" >
+<p class="mb-1"  >
 <h5>מאת: ${data[i].author} <br> ${data[i].updatedAt.slice(11, 16)}</h5>
 </p>
 
