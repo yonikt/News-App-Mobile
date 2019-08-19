@@ -4,14 +4,12 @@ const app = express()
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const port = 9876
-const newsModel = require('./models/newsModel')
 const path = require('path')
 
 app.use(express.static(path.join(__dirname, 'dist')))
 app.use(express.static(path.join(__dirname, 'node_modules')))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
-
 
 
 app.get('/news', function (req, res) {
@@ -34,16 +32,6 @@ app.get('/news', function (req, res) {
 
 
 
-app.post('/save', (req, res) => {
-    const m2 = new newsModel(req.body)
-    m2.save(() => res.json({ success: true }))
-})
-
-
-
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/mivzak', { useNewUrlParser: true }).then(() => {
     app.listen(process.env.PORT || port, () => console.log(`Running server on port ${port}`))
 })
-
-
-
