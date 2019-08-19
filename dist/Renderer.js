@@ -14,9 +14,6 @@ class Renderer {
             data[i].description= data[i].title.split("-")[0]
          }
 
-
-      
-
          
          $('#container').append(`<div class="my-2 mx-auto p-relative bg-white shadow-1 blue-hover" style="width: 360px; overflow: hidden; border-radius: 1px;">
          <img src=${data[i].picture} onError="this.onerror=null;this.src='https://www.mdcomms.co.uk/wp-content/uploads/2017/03/8c880ec2fa87287cbd8e61bbeaf473fd_0.jpg';" 

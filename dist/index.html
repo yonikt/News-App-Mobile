@@ -10,7 +10,7 @@
     <title>news-app</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
-  
+
 </head>
 
 </head>
@@ -20,72 +20,39 @@
 
 
     <p class="header mx-auto p-relative shadow-1 "="rtl">
-        יום <span id='day'></span>, <span id="dayInMonth"></span> ב<span id='month'></span><span id="dayInMonth"></span> <span id="fullYear"></span>
- </p>
-   
+        יום <span id='day'></span>, <span id="dayInMonth"></span> ב<span id='month'></span><span id="dayInMonth"></span>
+        <span id="fullYear"></span>
+    </p>
+
 
     <div id="container"> </div>
 
 
 
- <script>
+    <script>
 
-    (function($) {
+        (function ($) {
 
-    //המשתנים שמתקבלים מהשעון
+            //המשתנים שמתקבלים מהשעון
 
-    var date = new Date(),
-
-    day  = date.getDay(),
-
-    fullYear = date.getFullYear(), 
-
-    month = date.getMonth(),
-
-    dayInMonth = date.getDate();
-
-	 
-
-     //המערכים שמאפשרים את המרת השמות לשמות עבריים
-
-    var hebrewDaysNames = new Array("ראשון","שני","שלישי","רביעי","חמישי","שישי","שבת");
-      var hebrewMonthsNames = new Array("מ","דצמבר","נובמבר", "אוקטובר", "ספטמבר", "אוגוסט", "יולי", "יוני","מאי","אפריל","מרץ","פברואר","ינואר");    
-
-	 
-
-     //מדפיס את היום
-
-     var getDay = hebrewDaysNames[day];
-
-     $('#day').text(getDay);
-
-	 
-
-     //מדפיס את החודש
-
-     var getMonth = hebrewMonthsNames[month];
-
-     $('#month').text(getMonth);
-
-	 
-
-      //מדפיס את היום בחודש
-
-     $("#dayInMonth").text(dayInMonth);
-
-	 
-
-     //מדפיס את השנה המלאה
-
-     $("#fullYear").text(fullYear);
-
- })(jQuery);   
-
-</script>
+            let date = new Date(),
+                day = date.getDay(),
+                fullYear = date.getFullYear(),
+                month = date.getMonth() + 1,
+                dayInMonth = date.getDate()
 
 
+            let hebrewDaysNames = ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי", "שבת"]
+            let hebrewMonthsNames = ["ינואר", "פברואר", "מרץ", "אפריל", "מאי", "יוני", "יולי", "אוגוסט", "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"]
 
+            $('#day').text(hebrewDaysNames[day])
+            $('#month').text(hebrewMonthsNames[month])
+            $("#dayInMonth").text(dayInMonth)
+            $("#fullYear").text(fullYear)
 
+        })(jQuery)
+
+    </script>
 
 
     <script src="NewsManager.js"></script>

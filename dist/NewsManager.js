@@ -20,17 +20,6 @@ class NewsManager {
     // }
 
 
-    // removeCity(cityName) {
-    //     $.ajax({
-    //         type: "DELETE",
-    //         url: `/city/${cityName}`,
-    //         success: function () {
-    //             console.log("deleted")
-    //         }
-    //     })
-    //     this.cityData = this.cityData.filter(c => c.name != cityName)
-    // }
-
    
 }
 

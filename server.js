@@ -33,29 +33,13 @@ app.get('/news', function (req, res) {
 })
 
 
-app.get('/save', function (req, res) {
-   newsModel.find({}, function (err, data) {
-        res.send(data)
-    })
-})
-
 
 app.post('/save', (req, res) => {
     const m2 = new newsModel(req.body)
     m2.save(() => res.json({ success: true }))
 })
 
-app.delete('/news/:article', function (req, res) {
-    const article = req.params.article
-    newsModel.findOneAndRemove({ 'name': article }).then(function () {
-    })
-    res.end()
-})
 
-
-
-
-///
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/mivzak', { useNewUrlParser: true }).then(() => {
     app.listen(process.env.PORT || port, () => console.log(`Running server on port ${port}`))
